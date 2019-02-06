@@ -1,0 +1,6 @@
+framework module Pods_CocoaTalk {
+  umbrella header "Pods-CocoaTalk-umbrella.h"
+
+  export *
+  module * { export * }
+}

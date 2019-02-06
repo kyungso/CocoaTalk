@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>587825816010-qd0ldn788ffppr0ogmh69ho1m4pc7ov9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.587825816010-qd0ldn788ffppr0ogmh69ho1m4pc7ov9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAATo17eL34Zo7YXfIffsTlMdb2XIgpKDQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>587825816010</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ksjung.CocoaTalk</string>
+	<key>PROJECT_ID</key>
+	<string>cocoatalk-2516e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cocoatalk-2516e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:587825816010:ios:dbf3a4a255bf4384</string>
+	<key>DATABASE_URL</key>
+	<string>https://cocoatalk-2516e.firebaseio.com</string>
+</dict>
+</plist>
