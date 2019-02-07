@@ -64,11 +64,13 @@ PODS:
   - nanopb/encode (0.3.901)
   - Protobuf (3.6.1)
   - SnapKit (4.0.1)
+  - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/RemoteConfig
   - SnapKit (~> 4.0.0)
+  - TextFieldEffects
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -83,6 +85,7 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SnapKit
+    - TextFieldEffects
 
 SPEC CHECKSUMS:
   Firebase: 749a8ff4962f9d8c79dda1966de20f6f77583d67
@@ -96,7 +99,8 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: ce2606b75e376be4d6854a586de8c98b07bc0ab8
+PODFILE CHECKSUM: de80e018e0718cb42c1d45482ae3cb90f6ebdee0
 
 COCOAPODS: 1.5.3
