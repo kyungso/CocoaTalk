@@ -10,5 +10,6 @@ target 'CocoaTalk' do
   pod 'Firebase/Core'
   pod 'Firebase/RemoteConfig'
   pod 'TextFieldEffects'
-
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 end
