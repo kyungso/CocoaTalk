@@ -12,4 +12,5 @@ target 'CocoaTalk' do
   pod 'TextFieldEffects'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 end
