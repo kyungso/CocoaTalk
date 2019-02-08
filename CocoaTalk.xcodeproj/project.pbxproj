@@ -16,6 +16,7 @@
 		BACABB9A220AC9AB0057D892 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BACABB99220AC9AB0057D892 /* Assets.xcassets */; };
 		BACABB9D220AC9AB0057D892 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACABB9B220AC9AB0057D892 /* LaunchScreen.storyboard */; };
 		BACABBA5220ACC9D0057D892 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BACABBA4220ACC9D0057D892 /* GoogleService-Info.plist */; };
+		BAD7C1FB220D689C008F2847 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7C1FA220D689C008F2847 /* SignupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		BACABB9C220AC9AB0057D892 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BACABB9E220AC9AB0057D892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BACABBA4220ACC9D0057D892 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BAD7C1FA220D689C008F2847 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		BB8A373B20638810482DC3E2 /* Pods-CocoaTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaTalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-CocoaTalk/Pods-CocoaTalk.release.xcconfig"; sourceTree = "<group>"; };
 		F5CD1887CBFCE2CEB1649789 /* Pods_CocoaTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoaTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 				BACABB9E220AC9AB0057D892 /* Info.plist */,
 				BACABBA4220ACC9D0057D892 /* GoogleService-Info.plist */,
 				BA9AC987220C18CB0029273A /* LoginViewController.swift */,
+				BAD7C1FA220D689C008F2847 /* SignupViewController.swift */,
 			);
 			path = CocoaTalk;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				BA9AC988220C18CB0029273A /* LoginViewController.swift in Sources */,
 				BACABB95220AC9A90057D892 /* ViewController.swift in Sources */,
+				BAD7C1FB220D689C008F2847 /* SignupViewController.swift in Sources */,
 				BACABB93220AC9A90057D892 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

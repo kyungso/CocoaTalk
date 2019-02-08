@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import SnapKit
 import Firebase
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var signIn: UIButton!
+    @IBOutlet weak var signUp: UIButton!
     let remoteConfig = RemoteConfig.remoteConfig()
-    var color: String! = nil
+    var color: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,20 +28,17 @@ class LoginViewController: UIViewController {
         }
         color = remoteConfig["splash_background"].stringValue
         
-        statusBar.backgroundColor = UIColor(hex: color)
-        loginButton.backgroundColor = UIColor(hex: color)
-        signIn.backgroundColor = UIColor(hex: color)
+        statusBar.backgroundColor = UIColor(hex: color!)
+        loginButton.backgroundColor = UIColor(hex: color!)
+        signUp.backgroundColor = UIColor(hex: color!)
+        
+        signUp.addTarget(self, action: #selector(presentSignup), for: .touchUpInside)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func presentSignup() {
+        let signupVC = self.storyboard?.instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
+        self.present(signupVC, animated: true, completion: nil)
     }
-    */
-
+    
 }
