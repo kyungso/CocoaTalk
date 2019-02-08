@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,7 +11,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CocoaTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -30,18 +26,18 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="jYI-qZ-wu5" customClass="LoginViewController" customModule="CocoaTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Fg-rL-6VK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_icon" translatesAutoresizingMaskIntoConstraints="NO" id="hz0-e3-N3m">
-                                <rect key="frame" x="137.5" y="160" width="100" height="100"/>
+                                <rect key="frame" x="250" y="160" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="fCT-p4-hPc"/>
                                     <constraint firstAttribute="height" constant="100" id="u6m-2a-eWe"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hYy-3v-N41" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="16" y="318" width="343" height="40"/>
+                                <rect key="frame" x="16" y="318" width="568" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="nwu-EW-IlT"/>
                                 </constraints>
@@ -58,7 +54,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ocW-Gx-Ntv" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="16" y="366" width="343" height="40"/>
+                                <rect key="frame" x="16" y="366" width="568" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5ak-pA-lVM"/>
                                 </constraints>
@@ -75,7 +71,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ST-0A-cPp">
-                                <rect key="frame" x="16" y="414" width="343" height="40"/>
+                                <rect key="frame" x="16" y="414" width="568" height="40"/>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="0bp-Sg-qdw"/>
@@ -85,7 +81,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzB-qF-cWo">
-                                <rect key="frame" x="16" y="462" width="343" height="40"/>
+                                <rect key="frame" x="16" y="462" width="568" height="40"/>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hQj-8P-dWJ"/>
@@ -128,13 +124,13 @@
             <objects>
                 <viewController storyboardIdentifier="SignupViewController" id="JKR-E1-KAb" customClass="SignupViewController" customModule="CocoaTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1yj-WC-C7M">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ypi-ad-sdV" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="16" y="217" width="343" height="40"/>
+                                <rect key="frame" x="16" y="217" width="568" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Ib4-qg-O9B"/>
+                                    <constraint firstAttribute="height" constant="40" id="BZ9-1x-W72"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -149,9 +145,9 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aut-YQ-r3r" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="16" y="265" width="343" height="40"/>
+                                <rect key="frame" x="16" y="265" width="568" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="dAx-D5-ezY"/>
+                                    <constraint firstAttribute="height" constant="40" id="Xoa-rq-PyG"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -166,9 +162,9 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tHy-ip-W6F" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="16" y="313" width="343" height="40"/>
+                                <rect key="frame" x="16" y="313" width="568" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="2CU-h5-7o6"/>
+                                    <constraint firstAttribute="height" constant="40" id="8kY-hL-KYx"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -183,10 +179,10 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dvi-1z-bfr">
-                                <rect key="frame" x="16" y="361" width="343" height="40"/>
+                                <rect key="frame" x="16" y="361" width="568" height="40"/>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="n0P-CN-mQt"/>
+                                    <constraint firstAttribute="height" constant="40" id="eW2-3o-5oY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Sign Up">
@@ -194,43 +190,53 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nT9-pM-xIS">
-                                <rect key="frame" x="16" y="409" width="343" height="40"/>
+                                <rect key="frame" x="16" y="409" width="568" height="40"/>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="miI-OW-lTs"/>
+                                    <constraint firstAttribute="height" constant="40" id="yRg-vv-rJV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_add_to_photos" translatesAutoresizingMaskIntoConstraints="NO" id="1CY-av-pve">
+                                <rect key="frame" x="250" y="109" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="DoW-lU-mrK"/>
+                                    <constraint firstAttribute="width" constant="100" id="SJS-dP-yRS"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ni7-u4-B62" firstAttribute="trailing" secondItem="nT9-pM-xIS" secondAttribute="trailing" constant="16" id="A8Y-aJ-14Q"/>
-                            <constraint firstItem="Ni7-u4-B62" firstAttribute="trailing" secondItem="Aut-YQ-r3r" secondAttribute="trailing" constant="16" id="LhD-5z-jTZ"/>
-                            <constraint firstItem="Dvi-1z-bfr" firstAttribute="leading" secondItem="Ni7-u4-B62" secondAttribute="leading" constant="16" id="MHN-Ph-fTz"/>
-                            <constraint firstItem="Aut-YQ-r3r" firstAttribute="leading" secondItem="Ni7-u4-B62" secondAttribute="leading" constant="16" id="Nht-jc-cSr"/>
-                            <constraint firstItem="tHy-ip-W6F" firstAttribute="top" secondItem="Aut-YQ-r3r" secondAttribute="bottom" constant="8" id="QAQ-d5-wOG"/>
-                            <constraint firstItem="tHy-ip-W6F" firstAttribute="leading" secondItem="Ni7-u4-B62" secondAttribute="leading" constant="16" id="RvQ-y1-eSj"/>
-                            <constraint firstItem="Dvi-1z-bfr" firstAttribute="top" secondItem="tHy-ip-W6F" secondAttribute="bottom" constant="8" id="SWO-Lj-L9h"/>
-                            <constraint firstItem="Ypi-ad-sdV" firstAttribute="leading" secondItem="Ni7-u4-B62" secondAttribute="leading" constant="16" id="Z75-Dt-SqW"/>
-                            <constraint firstItem="nT9-pM-xIS" firstAttribute="top" secondItem="Dvi-1z-bfr" secondAttribute="bottom" constant="8" id="hEc-2q-Ka4"/>
-                            <constraint firstItem="Ni7-u4-B62" firstAttribute="trailing" secondItem="Ypi-ad-sdV" secondAttribute="trailing" constant="16" id="kyf-iZ-nII"/>
-                            <constraint firstItem="Ni7-u4-B62" firstAttribute="trailing" secondItem="tHy-ip-W6F" secondAttribute="trailing" constant="16" id="lJv-D1-zg2"/>
-                            <constraint firstItem="Ni7-u4-B62" firstAttribute="trailing" secondItem="Dvi-1z-bfr" secondAttribute="trailing" constant="16" id="nxS-YZ-B6z"/>
-                            <constraint firstItem="Aut-YQ-r3r" firstAttribute="top" secondItem="Ypi-ad-sdV" secondAttribute="bottom" constant="8" id="nz6-lU-9L1"/>
-                            <constraint firstItem="Ypi-ad-sdV" firstAttribute="top" secondItem="Ni7-u4-B62" secondAttribute="top" constant="197" id="pz0-yT-PVj"/>
-                            <constraint firstItem="nT9-pM-xIS" firstAttribute="leading" secondItem="Ni7-u4-B62" secondAttribute="leading" constant="16" id="tLD-mY-I62"/>
+                            <constraint firstItem="tHy-ip-W6F" firstAttribute="leading" secondItem="Ni7-u4-B62" secondAttribute="leading" constant="16" id="1a0-yw-53A"/>
+                            <constraint firstItem="1CY-av-pve" firstAttribute="top" secondItem="Ni7-u4-B62" secondAttribute="top" constant="89" id="CNv-TR-AGS"/>
+                            <constraint firstItem="Ypi-ad-sdV" firstAttribute="leading" secondItem="Ni7-u4-B62" secondAttribute="leading" constant="16" id="Fq2-5n-78G"/>
+                            <constraint firstItem="Ni7-u4-B62" firstAttribute="trailing" secondItem="nT9-pM-xIS" secondAttribute="trailing" constant="16" id="PUs-6O-9dU"/>
+                            <constraint firstItem="nT9-pM-xIS" firstAttribute="leading" secondItem="Ni7-u4-B62" secondAttribute="leading" constant="16" id="UYs-my-wsp"/>
+                            <constraint firstItem="Dvi-1z-bfr" firstAttribute="leading" secondItem="Ni7-u4-B62" secondAttribute="leading" constant="16" id="d1Z-AN-3Rc"/>
+                            <constraint firstItem="Dvi-1z-bfr" firstAttribute="top" secondItem="tHy-ip-W6F" secondAttribute="bottom" constant="8" id="eiX-9p-5e2"/>
+                            <constraint firstItem="Ni7-u4-B62" firstAttribute="trailing" secondItem="tHy-ip-W6F" secondAttribute="trailing" constant="16" id="fjA-PE-rKb"/>
+                            <constraint firstItem="Aut-YQ-r3r" firstAttribute="leading" secondItem="Ni7-u4-B62" secondAttribute="leading" constant="16" id="ia6-nG-Vgc"/>
+                            <constraint firstItem="Ni7-u4-B62" firstAttribute="trailing" secondItem="Aut-YQ-r3r" secondAttribute="trailing" constant="16" id="iuD-Pw-Sle"/>
+                            <constraint firstItem="Ni7-u4-B62" firstAttribute="trailing" secondItem="Dvi-1z-bfr" secondAttribute="trailing" constant="16" id="kbO-Vm-1NX"/>
+                            <constraint firstItem="tHy-ip-W6F" firstAttribute="top" secondItem="Aut-YQ-r3r" secondAttribute="bottom" constant="8" id="lxB-cW-HHZ"/>
+                            <constraint firstItem="1CY-av-pve" firstAttribute="centerX" secondItem="1yj-WC-C7M" secondAttribute="centerX" id="mvI-ae-na6"/>
+                            <constraint firstItem="Ypi-ad-sdV" firstAttribute="top" secondItem="1CY-av-pve" secondAttribute="bottom" constant="8" id="p5q-eF-CP7"/>
+                            <constraint firstItem="Ni7-u4-B62" firstAttribute="trailing" secondItem="Ypi-ad-sdV" secondAttribute="trailing" constant="16" id="ul2-fL-UdC"/>
+                            <constraint firstItem="Aut-YQ-r3r" firstAttribute="top" secondItem="Ypi-ad-sdV" secondAttribute="bottom" constant="8" id="w1d-uI-evc"/>
+                            <constraint firstItem="nT9-pM-xIS" firstAttribute="top" secondItem="Dvi-1z-bfr" secondAttribute="bottom" constant="8" id="wgN-Nc-Cvr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ni7-u4-B62"/>
                     </view>
                     <connections>
+                        <outlet property="addImageView" destination="1CY-av-pve" id="WSA-w3-Wmk"/>
                         <outlet property="cancel" destination="nT9-pM-xIS" id="e2n-lQ-Db0"/>
                         <outlet property="email" destination="Ypi-ad-sdV" id="XLf-xI-7yY"/>
-                        <outlet property="name" destination="Aut-YQ-r3r" id="U8E-EN-SLG"/>
                         <outlet property="password" destination="tHy-ip-W6F" id="sgp-mZ-jWF"/>
                         <outlet property="signup" destination="Dvi-1z-bfr" id="LoQ-zO-XnX"/>
+                        <outlet property="userName" destination="Aut-YQ-r3r" id="U8E-EN-SLG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXn-2G-5Vn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,6 +245,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_add_to_photos" width="24" height="24"/>
         <image name="loading_icon" width="128" height="128"/>
     </resources>
 </document>
