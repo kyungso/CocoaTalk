@@ -36,6 +36,17 @@ class SignupViewController: UIViewController {
         signup.backgroundColor = UIColor(hex: color!)
         cancel.backgroundColor = UIColor(hex: color!)
 
+        signup.addTarget(self, action: #selector(signupEvent), for: .touchUpInside)
+        cancel.addTarget(self, action: #selector(cancelEvent), for: .touchUpInside)
     }
 
+    @objc func signupEvent() {
+        Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, err) in
+            Database.database().reference().child("users").child((user?.user.uid)!).setValue(["name": self.name.text!])
+        }
+    }
+    
+    @objc func cancelEvent() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
