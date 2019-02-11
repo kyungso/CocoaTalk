@@ -59,7 +59,7 @@ class PeopleViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.addSubview(imageView)
         imageView.snp.makeConstraints { (make) in
             make.centerY.equalTo(cell)
-            make.left.equalTo(cell).offset(10)
+            make.left.equalTo(cell).offset(10 )
             make.width.height.equalTo(50)
         }
 
@@ -88,8 +88,10 @@ class PeopleViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chatView = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController")
-        self.navigationController?.pushViewController(chatView!, animated: true)
+        let chatView = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        
+        chatView.destinationUid = self.array[indexPath.row].uid
+        self.navigationController?.pushViewController(chatView, animated: true)
     }
 }
 

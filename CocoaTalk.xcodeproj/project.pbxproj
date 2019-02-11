@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		05705F91E29265EA0A7B7EB5 /* Pods_CocoaTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CD1887CBFCE2CEB1649789 /* Pods_CocoaTalk.framework */; };
 		BA5B7B2C220EF1AB0070C46C /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B7B2B220EF1AB0070C46C /* PeopleViewController.swift */; };
+		BA8C050B22113F240064F7A5 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C050A22113F240064F7A5 /* ChatModel.swift */; };
+		BA8C050D2211407D0064F7A5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C050C2211407D0064F7A5 /* ChatViewController.swift */; };
 		BA9AC982220B13D90029273A /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA9AC981220B13D90029273A /* RemoteConfigDefaults.plist */; };
 		BA9AC988220C18CB0029273A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9AC987220C18CB0029273A /* LoginViewController.swift */; };
 		BAA950F422110781001BECE1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA950F322110781001BECE1 /* UserModel.swift */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		9C83C16862358CC46F696710 /* Pods-CocoaTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocoaTalk/Pods-CocoaTalk.debug.xcconfig"; sourceTree = "<group>"; };
 		BA5B7B2B220EF1AB0070C46C /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		BA8C050A22113F240064F7A5 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		BA8C050C2211407D0064F7A5 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BA9AC981220B13D90029273A /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		BA9AC987220C18CB0029273A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BAA950F322110781001BECE1 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -69,6 +73,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BA8C050922113EF40064F7A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BAA950F322110781001BECE1 /* UserModel.swift */,
+				BA8C050A22113F240064F7A5 /* ChatModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BACABB86220AC9A90057D892 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +103,7 @@
 		BACABB91220AC9A90057D892 /* CocoaTalk */ = {
 			isa = PBXGroup;
 			children = (
+				BA8C050922113EF40064F7A5 /* Model */,
 				BACABB92220AC9A90057D892 /* AppDelegate.swift */,
 				BACABB94220AC9A90057D892 /* ViewController.swift */,
 				BA9AC981220B13D90029273A /* RemoteConfigDefaults.plist */,
@@ -101,7 +115,7 @@
 				BA9AC987220C18CB0029273A /* LoginViewController.swift */,
 				BAD7C1FA220D689C008F2847 /* SignupViewController.swift */,
 				BA5B7B2B220EF1AB0070C46C /* PeopleViewController.swift */,
-				BAA950F322110781001BECE1 /* UserModel.swift */,
+				BA8C050C2211407D0064F7A5 /* ChatViewController.swift */,
 			);
 			path = CocoaTalk;
 			sourceTree = "<group>";
@@ -234,7 +248,9 @@
 			files = (
 				BA9AC988220C18CB0029273A /* LoginViewController.swift in Sources */,
 				BACABB95220AC9A90057D892 /* ViewController.swift in Sources */,
+				BA8C050D2211407D0064F7A5 /* ChatViewController.swift in Sources */,
 				BAD7C1FB220D689C008F2847 /* SignupViewController.swift in Sources */,
+				BA8C050B22113F240064F7A5 /* ChatModel.swift in Sources */,
 				BACABB93220AC9A90057D892 /* AppDelegate.swift in Sources */,
 				BAA950F422110781001BECE1 /* UserModel.swift in Sources */,
 				BA5B7B2C220EF1AB0070C46C /* PeopleViewController.swift in Sources */,
