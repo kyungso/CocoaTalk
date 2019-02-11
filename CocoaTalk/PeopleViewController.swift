@@ -33,12 +33,18 @@ class PeopleViewController: UIViewController, UITableViewDelegate, UITableViewDa
         Database.database().reference().child("users").observe(DataEventType.value) { (snapshot) in
 
             self.array.removeAll()
+            
+            let myUid = Auth.auth().currentUser?.uid
 
             for child in snapshot.children{
                 let fchild = child as! DataSnapshot
                 let userModel = UserModel()
 
                 userModel.setValuesForKeys(fchild.value as! [String : Any])
+                
+                if(userModel.uid == myUid){
+                    continue
+                }
                 self.array.append(userModel)
             }
             DispatchQueue.main.async {

@@ -9,13 +9,15 @@
 import UIKit
 import Firebase
 
-class ChatViewController: UIViewController {
-
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var message_textfield: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     
     var uid: String?
     var chatRoomUid: String?
+    var comments: [ChatModel.Comment] = []
     
     public var destinationUid: String?
     
@@ -35,14 +37,21 @@ class ChatViewController: UIViewController {
             ]
         ]
         
-        if(chatRoomUid == nil){
-            // 방 생성 코드
-            Database.database().reference().child("chatrooms").childByAutoId().setValue(createRoomInfo)
+        if(chatRoomUid == nil){ // 방 생성 코드
+            
+            self.sendButton.isEnabled = false
+            Database.database().reference().child("chatrooms").childByAutoId().setValue(createRoomInfo) { (err, ref) in
+                
+                if(err == nil){
+                    self.checkChatRoom()
+                }
+            }
+            
+            
         }else {
-            let message_value = [ "comments": [
+            let message_value = [
                 "uid": uid,
                 "message": message_textfield.text
-                ]
             ]
             Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(message_value)
         }
@@ -52,8 +61,42 @@ class ChatViewController: UIViewController {
         Database.database().reference().child("chatrooms").queryOrdered(byChild: "users/"+uid!).observeSingleEvent(of: DataEventType.value) { (datasnapshot) in
             
             for item in datasnapshot.children.allObjects as! [DataSnapshot] {
-                self.chatRoomUid = item.key
+                
+                if let chatRoomdic = item.value as? [String:AnyObject]{
+                    let chatModel = ChatModel(JSON: chatRoomdic)
+                    if(chatModel?.users[self.destinationUid!] == true){
+                        self.chatRoomUid = item.key
+                        self.sendButton.isEnabled = true
+                        self.getMessageList()
+                    }
+                }
             }
         }
+    }
+    
+    func getMessageList() {
+        
+        Database.database().reference().child("chatrooms").child(self.chatRoomUid!).child("comments").observe(DataEventType.value) { (datasnapshot) in
+            
+            self.comments.removeAll()
+            
+            for item in datasnapshot.children.allObjects as! [DataSnapshot]{
+                let comment = ChatModel.Comment(JSON: item.value as! [String : AnyObject])
+                self.comments.append(comment!)
+            }
+            self.tableview.reloadData()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let view = tableview.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
+        view.textLabel?.text = self.comments[indexPath.row].message
+        
+        return view
     }
 }

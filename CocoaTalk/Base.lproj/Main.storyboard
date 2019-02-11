@@ -166,12 +166,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l5t-7c-dGR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="70" id="f2L-fc-9pD">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f2L-fc-9pD" id="jWg-bv-ZyR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="P6Q-9U-1th" id="Ib7-3D-rCO"/>
+                                    <outlet property="delegate" destination="P6Q-9U-1th" id="nAS-Ch-mAx"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ued-Uo-brr" firstAttribute="trailing" secondItem="IBr-B3-i5k" secondAttribute="trailing" constant="16" id="2rC-l2-Oqp"/>
+                            <constraint firstItem="l5t-7c-dGR" firstAttribute="trailing" secondItem="ued-Uo-brr" secondAttribute="trailing" id="5Oo-PI-Tyn"/>
                             <constraint firstItem="ued-Uo-brr" firstAttribute="bottom" secondItem="6S5-Gg-l6g" secondAttribute="bottom" constant="20" id="AsQ-4z-zae"/>
+                            <constraint firstItem="l5t-7c-dGR" firstAttribute="top" secondItem="Yde-Ab-cef" secondAttribute="top" id="FnN-Mn-fIj"/>
                             <constraint firstItem="IBr-B3-i5k" firstAttribute="leading" secondItem="6S5-Gg-l6g" secondAttribute="trailing" constant="24" id="FpF-0R-0Rh"/>
+                            <constraint firstItem="l5t-7c-dGR" firstAttribute="leading" secondItem="ued-Uo-brr" secondAttribute="leading" id="cwJ-Og-BAi"/>
+                            <constraint firstItem="IBr-B3-i5k" firstAttribute="top" secondItem="l5t-7c-dGR" secondAttribute="bottom" constant="8" id="eE0-Qh-zIe"/>
                             <constraint firstItem="6S5-Gg-l6g" firstAttribute="leading" secondItem="ued-Uo-brr" secondAttribute="leading" constant="16" id="vtL-wL-nvZ"/>
                             <constraint firstItem="ued-Uo-brr" firstAttribute="bottom" secondItem="IBr-B3-i5k" secondAttribute="bottom" constant="20" id="zLv-QE-dti"/>
                         </constraints>
@@ -180,6 +202,7 @@
                     <connections>
                         <outlet property="message_textfield" destination="6S5-Gg-l6g" id="9yr-6L-osT"/>
                         <outlet property="sendButton" destination="IBr-B3-i5k" id="3cN-8O-8Ix"/>
+                        <outlet property="tableview" destination="l5t-7c-dGR" id="KmX-dK-BIK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZtE-Xd-JJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
