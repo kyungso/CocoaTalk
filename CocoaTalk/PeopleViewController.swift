@@ -59,7 +59,7 @@ class PeopleViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.addSubview(imageView)
         imageView.snp.makeConstraints { (make) in
             make.centerY.equalTo(cell)
-            make.left.equalTo(cell)
+            make.left.equalTo(cell).offset(10)
             make.width.height.equalTo(50)
         }
 
@@ -76,7 +76,7 @@ class PeopleViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.addSubview(label)
         label.snp.makeConstraints { (make) in
             make.centerY.equalTo(cell)
-            make.left.equalTo(imageView.snp.right).offset(30)
+            make.left.equalTo(imageView.snp.right).offset(20)
         }
         label.text = array[indexPath.row].userName
 
@@ -84,8 +84,12 @@ class PeopleViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 70
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chatView = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController")
+        self.navigationController?.pushViewController(chatView!, animated: true)
+    }
 }
 
