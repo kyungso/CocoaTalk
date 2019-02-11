@@ -13,4 +13,5 @@ target 'CocoaTalk' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'ObjectMapper', '~> 3.4'
 end
