@@ -46,7 +46,7 @@
                                     <constraint firstAttribute="height" constant="40" id="nwu-EW-IlT"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
@@ -63,7 +63,7 @@
                                     <constraint firstAttribute="height" constant="40" id="5ak-pA-lVM"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
@@ -125,21 +125,65 @@
             </objects>
             <point key="canvasLocation" x="900" y="98.50074962518741"/>
         </scene>
-        <!--people-->
+        <!--People View Controller-->
         <scene sceneID="JSb-nm-RWu">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="cvS-vr-p7a" customClass="MainViewController" customModule="CocoaTalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="cvS-vr-p7a" customClass="PeopleViewController" customModule="CocoaTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v0t-8U-4xi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="JJQ-3j-0dz"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="people" image="ic_people" id="vhU-jD-GZ5"/>
+                    <navigationItem key="navigationItem" id="cWP-ve-AtJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03R-3b-wOC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2588" y="500.59970014992507"/>
+            <point key="canvasLocation" x="3527.1999999999998" y="500.59970014992507"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="k6l-5w-uIr">
+            <objects>
+                <viewController storyboardIdentifier="ChatViewController" id="P6Q-9U-1th" customClass="ChatViewController" customModule="CocoaTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yde-Ab-cef">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBr-B3-i5k">
+                                <rect key="frame" x="313" y="617" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="kVS-eM-eI3"/>
+                                    <constraint firstAttribute="width" constant="46" id="xNL-on-O53"/>
+                                </constraints>
+                                <state key="normal" title="전송"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6S5-Gg-l6g">
+                                <rect key="frame" x="16" y="617" width="289" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="289" id="EiZ-It-OhB"/>
+                                    <constraint firstAttribute="height" constant="30" id="XLO-0b-jEW"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ued-Uo-brr" firstAttribute="trailing" secondItem="IBr-B3-i5k" secondAttribute="trailing" constant="16" id="2rC-l2-Oqp"/>
+                            <constraint firstItem="ued-Uo-brr" firstAttribute="bottom" secondItem="6S5-Gg-l6g" secondAttribute="bottom" constant="20" id="AsQ-4z-zae"/>
+                            <constraint firstItem="6S5-Gg-l6g" firstAttribute="leading" secondItem="ued-Uo-brr" secondAttribute="leading" constant="16" id="vtL-wL-nvZ"/>
+                            <constraint firstItem="ued-Uo-brr" firstAttribute="bottom" secondItem="IBr-B3-i5k" secondAttribute="bottom" constant="20" id="zLv-QE-dti"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ued-Uo-brr"/>
+                    </view>
+                    <connections>
+                        <outlet property="sendButton" destination="IBr-B3-i5k" id="3cN-8O-8Ix"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZtE-Xd-JJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4212" y="500.59970014992507"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="Z4M-tb-GTE">
@@ -155,7 +199,7 @@
                                     <constraint firstAttribute="height" constant="40" id="BZ9-1x-W72"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
@@ -172,7 +216,7 @@
                                     <constraint firstAttribute="height" constant="40" id="Xoa-rq-PyG"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
@@ -189,7 +233,7 @@
                                     <constraint firstAttribute="height" constant="40" id="8kY-hL-KYx"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
@@ -271,11 +315,12 @@
                 <tabBarController storyboardIdentifier="MainViewTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="LtE-o0-3DT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u5Z-Xi-HIw">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="cvS-vr-p7a" kind="relationship" relationship="viewControllers" id="vjo-mX-fgF"/>
+                        <segue destination="F6u-Uh-hdf" kind="relationship" relationship="viewControllers" id="vjo-mX-fgF"/>
                         <segue destination="zE5-O0-QyE" kind="relationship" relationship="viewControllers" id="uCD-IK-rxY"/>
                         <segue destination="it3-wr-G9I" kind="relationship" relationship="viewControllers" id="7JL-4M-UJm"/>
                     </connections>
@@ -315,6 +360,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxJ-61-7ir" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2588" y="1358"/>
+        </scene>
+        <!--people-->
+        <scene sceneID="dP7-g4-4De">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F6u-Uh-hdf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="people" image="ic_people" id="vhU-jD-GZ5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mme-b4-Fn4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cvS-vr-p7a" kind="relationship" relationship="rootViewController" id="hJ1-wW-F7Y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gXH-en-lmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2588" y="500.59970014992507"/>
         </scene>
     </scenes>
     <resources>

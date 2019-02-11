@@ -70,7 +70,12 @@ class SignupViewController: UIViewController, UINavigationControllerDelegate, UI
             
             storageRef.putData(image!, metadata: nil, completion: { (data, error) in
                 storageRef.downloadURL(completion: { (url, err) in
-                    Database.database().reference().child("users").child(uid!).setValue(["userName": self.userName.text,"profileImageUrl":url?.absoluteString])
+                    let values = ["userName": self.userName.text,"profileImageUrl":url?.absoluteString,"uid":Auth.auth().currentUser?.uid]
+                    Database.database().reference().child("users").child(uid!).setValue(values, withCompletionBlock: { (err, ref) in
+                        if(err==nil){
+                            self.cancelEvent()
+                        }
+                    })
                 })
             })
         }
