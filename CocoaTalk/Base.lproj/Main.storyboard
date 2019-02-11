@@ -128,7 +128,7 @@
         <!--people-->
         <scene sceneID="JSb-nm-RWu">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="cvS-vr-p7a" customClass="MainViewController" customModule="CocoaTalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="cvS-vr-p7a" customClass="PeopleViewController" customModule="CocoaTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v0t-8U-4xi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -271,6 +271,7 @@
                 <tabBarController storyboardIdentifier="MainViewTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="LtE-o0-3DT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u5Z-Xi-HIw">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
