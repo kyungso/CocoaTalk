@@ -87,9 +87,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             
         }else {
-            let message_value = [
-                "uid": uid,
-                "message": message_textfield.text
+            let message_value: Dictionary<String,Any> = [
+                "uid": uid!,
+                "message": message_textfield.text!,
+                "timestamp": ServerValue.timestamp()
             ]
             Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(message_value) { (err, ref) in
                 self.message_textfield.text = ""
@@ -151,7 +152,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             let view = tableview.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as! MyMessageCell
             view.label_message.text = self.comments[indexPath.row].message
             view.label_message.numberOfLines = 0
+            
+            if let time = self.comments[indexPath.row].timestamp {
+                view.label_timestamp.text = time.toDayTime
+            }
             return view
+            
         }else {
             let view = tableView.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as! DestinationMessageCell
             view.label_name.text = userModel?.userName
@@ -168,6 +174,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
             }.resume()
+            
+            if let time = self.comments[indexPath.row].timestamp {
+                view.label_timestamp.text = time.toDayTime
+            }
+            
             return view
         }
         //return UITableViewCell()
@@ -178,9 +189,22 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 }
 
+extension Int {
+    
+    var toDayTime: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "yyyy.MM.dd HH:mm"
+        let date = Date(timeIntervalSince1970: Double(self)/1000)
+        
+        return dateFormatter.string(from: date)
+    }
+}
+
 class MyMessageCell: UITableViewCell {
     
     @IBOutlet weak var label_message: UILabel!
+    @IBOutlet weak var label_timestamp: UILabel!
 }
 
 class DestinationMessageCell: UITableViewCell {
@@ -188,5 +212,6 @@ class DestinationMessageCell: UITableViewCell {
     @IBOutlet weak var label_message: UILabel!
     @IBOutlet weak var imageview_profile: UIImageView!
     @IBOutlet weak var label_name: UILabel!
+    @IBOutlet weak var label_timestamp: UILabel!
 }
 
