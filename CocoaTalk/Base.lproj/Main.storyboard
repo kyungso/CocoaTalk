@@ -265,17 +265,18 @@
                         <constraints>
                             <constraint firstItem="ued-Uo-brr" firstAttribute="trailing" secondItem="IBr-B3-i5k" secondAttribute="trailing" constant="16" id="2rC-l2-Oqp"/>
                             <constraint firstItem="l5t-7c-dGR" firstAttribute="trailing" secondItem="ued-Uo-brr" secondAttribute="trailing" id="5Oo-PI-Tyn"/>
-                            <constraint firstItem="ued-Uo-brr" firstAttribute="bottom" secondItem="6S5-Gg-l6g" secondAttribute="bottom" constant="20" id="AsQ-4z-zae"/>
                             <constraint firstItem="l5t-7c-dGR" firstAttribute="top" secondItem="Yde-Ab-cef" secondAttribute="top" id="FnN-Mn-fIj"/>
                             <constraint firstItem="IBr-B3-i5k" firstAttribute="leading" secondItem="6S5-Gg-l6g" secondAttribute="trailing" constant="24" id="FpF-0R-0Rh"/>
                             <constraint firstItem="l5t-7c-dGR" firstAttribute="leading" secondItem="ued-Uo-brr" secondAttribute="leading" id="cwJ-Og-BAi"/>
                             <constraint firstItem="IBr-B3-i5k" firstAttribute="top" secondItem="l5t-7c-dGR" secondAttribute="bottom" constant="8" id="eE0-Qh-zIe"/>
+                            <constraint firstItem="6S5-Gg-l6g" firstAttribute="centerY" secondItem="IBr-B3-i5k" secondAttribute="centerY" id="kFJ-o0-oB4"/>
                             <constraint firstItem="6S5-Gg-l6g" firstAttribute="leading" secondItem="ued-Uo-brr" secondAttribute="leading" constant="16" id="vtL-wL-nvZ"/>
                             <constraint firstItem="ued-Uo-brr" firstAttribute="bottom" secondItem="IBr-B3-i5k" secondAttribute="bottom" constant="20" id="zLv-QE-dti"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ued-Uo-brr"/>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="zLv-QE-dti" id="LTc-5x-NhR"/>
                         <outlet property="message_textfield" destination="6S5-Gg-l6g" id="9yr-6L-osT"/>
                         <outlet property="sendButton" destination="IBr-B3-i5k" id="3cN-8O-8Ix"/>
                         <outlet property="tableview" destination="l5t-7c-dGR" id="KmX-dK-BIK"/>

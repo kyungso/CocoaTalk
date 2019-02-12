@@ -15,6 +15,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var message_textfield: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
     var uid: String?
     var chatRoomUid: String?
     var comments: [ChatModel.Comment] = []
@@ -27,10 +29,45 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         uid = Auth.auth().currentUser?.uid
         sendButton.addTarget(self, action: #selector(createRoom), for: .touchUpInside)
-       
         checkChatRoom()
+        self.tabBarController?.tabBar.isHidden = true
+        
+        let tab: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tab)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            self.bottomConstraint.constant = keyboardSize.height
+        }
+        UIView.animate(withDuration: 0, animations: {
+            self.view.layoutIfNeeded()
+        }) { (completion) in
+            if self.comments.count > 0 {
+                self.tableview.scrollToRow(at: IndexPath(item: self.comments.count - 1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        self.bottomConstraint.constant = 20
+        self.view.layoutIfNeeded()
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
     @objc func createRoom() {
         let createRoomInfo = [ "users":[
             uid: true,
@@ -54,7 +91,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 "uid": uid,
                 "message": message_textfield.text
             ]
-            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(message_value)
+            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(message_value) { (err, ref) in
+                self.message_textfield.text = ""
+            }
         }
     }
     
@@ -95,6 +134,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.comments.append(comment!)
             }
             self.tableview.reloadData()
+            
+            if self.comments.count > 0 {
+                self.tableview.scrollToRow(at: IndexPath(item: self.comments.count - 1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+            }
         }
     }
     
@@ -146,3 +189,4 @@ class DestinationMessageCell: UITableViewCell {
     @IBOutlet weak var imageview_profile: UIImageView!
     @IBOutlet weak var label_name: UILabel!
 }
+
