@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Kingfisher
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -20,7 +21,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var uid: String?
     var chatRoomUid: String?
     var comments: [ChatModel.Comment] = []
-    var userModel: UserModel?
+    var destinationUserModel: UserModel?
+    
+    var databaseRef: DatabaseReference?
+    var observe: UInt?
     
     public var destinationUid: String?
     
@@ -44,6 +48,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
         self.tabBarController?.tabBar.isHidden = false
+        
+        databaseRef?.removeObserver(withHandle: observe!)
     }
     
     @objc func keyboardWillShow(notification: Notification) {
@@ -118,27 +124,54 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func getDestinationInfo() {
         
         Database.database().reference().child("users").child(destinationUid!).observeSingleEvent(of: DataEventType.value) { (datasnapshot) in
-            self.userModel = UserModel()
-            self.userModel?.setValuesForKeys(datasnapshot.value as! [String : Any])
+            self.destinationUserModel = UserModel()
+            self.destinationUserModel?.setValuesForKeys(datasnapshot.value as! [String : Any])
             self.getMessageList()
+        }
+    }
+    
+    func setReadCount(label: UILabel?, position: Int?) {
+        
+        let readCount = self.comments[position!].readUsers.count
+        Database.database().reference().child("chatrooms").child(chatRoomUid!).child("users").observeSingleEvent(of: DataEventType.value) { (datasnapshot) in
+            let dic = datasnapshot.value as! [String:Any]
+            let noReadCount = dic.count - readCount
+            
+            if(noReadCount > 0) {
+                label?.isHidden = false
+                label?.text = String(noReadCount)
+            }else {
+                label?.isHidden = true
+            }
         }
     }
     
     func getMessageList() {
         
-        Database.database().reference().child("chatrooms").child(self.chatRoomUid!).child("comments").observe(DataEventType.value) { (datasnapshot) in
+        databaseRef = Database.database().reference().child("chatrooms").child(self.chatRoomUid!).child("comments")
+        observe = databaseRef!.observe(DataEventType.value) { (datasnapshot) in
             
             self.comments.removeAll()
             
+            var readUserDic: Dictionary<String,AnyObject> = [:]
+            
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
+                let key = item.key as String
                 let comment = ChatModel.Comment(JSON: item.value as! [String : AnyObject])
+                comment?.readUsers[self.uid!] = true
+                readUserDic[key] = comment?.toJSON() as! NSDictionary
                 self.comments.append(comment!)
             }
-            self.tableview.reloadData()
             
-            if self.comments.count > 0 {
-                self.tableview.scrollToRow(at: IndexPath(item: self.comments.count - 1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
-            }
+            let nsDic = readUserDic as NSDictionary
+            
+            datasnapshot.ref.updateChildValues(nsDic as! [AnyHashable : Any], withCompletionBlock: { (err, ref) in
+                self.tableview.reloadData()
+                
+                if self.comments.count > 0 {
+                    self.tableview.scrollToRow(at: IndexPath(item: self.comments.count - 1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+                }
+            })
         }
     }
     
@@ -156,29 +189,28 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let time = self.comments[indexPath.row].timestamp {
                 view.label_timestamp.text = time.toDayTime
             }
+            
+            setReadCount(label: view.label_read_counter, position: indexPath.row)
+            
             return view
             
         }else {
             let view = tableView.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as! DestinationMessageCell
-            view.label_name.text = userModel?.userName
+            view.label_name.text = destinationUserModel?.userName
             view.label_message.text = self.comments[indexPath.row].message
             view.label_message.numberOfLines = 0
             
-            let url = URL(string: (userModel?.profileImageUrl)!)
-            URLSession.shared.dataTask(with: url!) { (data, response, err) in
-                
-                DispatchQueue.main.async {
-                    view.imageview_profile.image = UIImage(data: data!)
-                    view.imageview_profile.layer.cornerRadius = view.imageview_profile.frame.width/2
-                    view.imageview_profile.clipsToBounds = true
-                }
-                
-            }.resume()
+            let url = URL(string: (destinationUserModel?.profileImageUrl)!)
+            view.imageview_profile.layer.cornerRadius = view.imageview_profile.frame.width/2
+            view.imageview_profile.clipsToBounds = true
+            view.imageview_profile.kf.setImage(with: url)
             
             if let time = self.comments[indexPath.row].timestamp {
                 view.label_timestamp.text = time.toDayTime
             }
             
+            setReadCount(label: view.label_read_counter, position: indexPath.row)
+             
             return view
         }
         //return UITableViewCell()
@@ -205,6 +237,7 @@ class MyMessageCell: UITableViewCell {
     
     @IBOutlet weak var label_message: UILabel!
     @IBOutlet weak var label_timestamp: UILabel!
+    @IBOutlet weak var label_read_counter: UILabel!
 }
 
 class DestinationMessageCell: UITableViewCell {
@@ -213,5 +246,6 @@ class DestinationMessageCell: UITableViewCell {
     @IBOutlet weak var imageview_profile: UIImageView!
     @IBOutlet weak var label_name: UILabel!
     @IBOutlet weak var label_timestamp: UILabel!
+    @IBOutlet weak var label_read_counter: UILabel!
 }
 

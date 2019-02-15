@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		05705F91E29265EA0A7B7EB5 /* Pods_CocoaTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CD1887CBFCE2CEB1649789 /* Pods_CocoaTalk.framework */; };
 		BA260CCF221290BD007BC3EC /* ChatRoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA260CCE221290BD007BC3EC /* ChatRoomsViewController.swift */; };
+		BA260CD12213BDE3007BC3EC /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA260CD02213BDE3007BC3EC /* AccountViewController.swift */; };
 		BA5B7B2C220EF1AB0070C46C /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B7B2B220EF1AB0070C46C /* PeopleViewController.swift */; };
 		BA8C050B22113F240064F7A5 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C050A22113F240064F7A5 /* ChatModel.swift */; };
 		BA8C050D2211407D0064F7A5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C050C2211407D0064F7A5 /* ChatViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		9C83C16862358CC46F696710 /* Pods-CocoaTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocoaTalk/Pods-CocoaTalk.debug.xcconfig"; sourceTree = "<group>"; };
 		BA260CCE221290BD007BC3EC /* ChatRoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomsViewController.swift; sourceTree = "<group>"; };
+		BA260CD02213BDE3007BC3EC /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BA5B7B2B220EF1AB0070C46C /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		BA8C050A22113F240064F7A5 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		BA8C050C2211407D0064F7A5 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				BA5B7B2B220EF1AB0070C46C /* PeopleViewController.swift */,
 				BA260CCE221290BD007BC3EC /* ChatRoomsViewController.swift */,
+				BA260CD02213BDE3007BC3EC /* AccountViewController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -165,6 +168,11 @@
 				TargetAttributes = {
 					BACABB8E220AC9A90057D892 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -229,6 +237,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-CocoaTalk/Pods-CocoaTalk-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -240,6 +249,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -265,6 +275,7 @@
 				BA8C050D2211407D0064F7A5 /* ChatViewController.swift in Sources */,
 				BAD7C1FB220D689C008F2847 /* SignupViewController.swift in Sources */,
 				BA8C050B22113F240064F7A5 /* ChatModel.swift in Sources */,
+				BA260CD12213BDE3007BC3EC /* AccountViewController.swift in Sources */,
 				BACABB93220AC9A90057D892 /* AppDelegate.swift in Sources */,
 				BAA950F422110781001BECE1 /* UserModel.swift in Sources */,
 				BA5B7B2C220EF1AB0070C46C /* PeopleViewController.swift in Sources */,
