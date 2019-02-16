@@ -25,6 +25,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var databaseRef: DatabaseReference?
     var observe: UInt?
+    var peopleCount: Int?
     
     public var destinationUid: String?
     
@@ -133,9 +134,21 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func setReadCount(label: UILabel?, position: Int?) {
         
         let readCount = self.comments[position!].readUsers.count
-        Database.database().reference().child("chatrooms").child(chatRoomUid!).child("users").observeSingleEvent(of: DataEventType.value) { (datasnapshot) in
-            let dic = datasnapshot.value as! [String:Any]
-            let noReadCount = dic.count - readCount
+        if(peopleCount == nil) {
+            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("users").observeSingleEvent(of: DataEventType.value) { (datasnapshot) in
+                let dic = datasnapshot.value as! [String:Any]
+                self.peopleCount = dic.count
+                let noReadCount = self.peopleCount! - readCount
+                
+                if(noReadCount > 0) {
+                    label?.isHidden = false
+                    label?.text = String(noReadCount)
+                }else {
+                    label?.isHidden = true
+                }
+            }
+        } else {
+            let noReadCount = self.peopleCount! - readCount
             
             if(noReadCount > 0) {
                 label?.isHidden = false
@@ -149,7 +162,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func getMessageList() {
         
         databaseRef = Database.database().reference().child("chatrooms").child(self.chatRoomUid!).child("comments")
-        observe = databaseRef!.observe(DataEventType.value) { (datasnapshot) in
+        observe = databaseRef!.observe(DataEventType.value, with: { (datasnapshot) in
             
             self.comments.removeAll()
             
@@ -158,21 +171,30 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
                 let key = item.key as String
                 let comment = ChatModel.Comment(JSON: item.value as! [String : AnyObject])
-                comment?.readUsers[self.uid!] = true
-                readUserDic[key] = comment?.toJSON() as! NSDictionary
+                let comment_motify = ChatModel.Comment(JSON: item.value as! [String : AnyObject])
+                comment_motify?.readUsers[self.uid!] = true
+                readUserDic[key] = comment_motify?.toJSON() as! NSDictionary
                 self.comments.append(comment!)
             }
             
             let nsDic = readUserDic as NSDictionary
             
-            datasnapshot.ref.updateChildValues(nsDic as! [AnyHashable : Any], withCompletionBlock: { (err, ref) in
+            if !((self.comments.last?.readUsers.keys.contains(self.uid!))!) {
+                datasnapshot.ref.updateChildValues(nsDic as! [AnyHashable : Any], withCompletionBlock: { (err, ref) in
+                    self.tableview.reloadData()
+                    
+                    if self.comments.count > 0 {
+                        self.tableview.scrollToRow(at: IndexPath(item: self.comments.count - 1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+                    }
+                })
+            } else {
                 self.tableview.reloadData()
                 
                 if self.comments.count > 0 {
                     self.tableview.scrollToRow(at: IndexPath(item: self.comments.count - 1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
                 }
-            })
-        }
+            }
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -210,7 +232,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             setReadCount(label: view.label_read_counter, position: indexPath.row)
-             
+            
             return view
         }
         //return UITableViewCell()
