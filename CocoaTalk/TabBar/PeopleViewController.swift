@@ -15,17 +15,17 @@ import Kingfisher
 class PeopleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var array: [UserModel] = []
-    var tableView: UITableView!
+    var tableview: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(PeopleTableViewCell.self, forCellReuseIdentifier: "Cell")
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
+        tableview = UITableView()
+        tableview.delegate = self
+        tableview.dataSource = self
+        tableview.register(PeopleTableViewCell.self, forCellReuseIdentifier: "Cell")
+        view.addSubview(tableview)
+        tableview.snp.makeConstraints { (make) in
             make.top.equalTo(view).offset(20)
             make.left.bottom.right.equalTo(view)
 
@@ -49,11 +49,27 @@ class PeopleViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.array.append(userModel)
             }
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.tableview.reloadData()
             }
         }
+        
+        let selectFriendButton = Button()
+        view.addSubview(selectFriendButton)
+        selectFriendButton.snp.makeConstraints { (make) in
+            make.bottom.equalTo(view).offset(-90)
+            make.right.equalTo(view).offset(-20)
+            make.width.height.equalTo(50)
+        }
+        selectFriendButton.backgroundColor = UIColor.black
+        selectFriendButton.addTarget(self, action: #selector(showSelectFriendController), for: .touchUpInside)
+        selectFriendButton.layer.cornerRadius = 25
+        selectFriendButton.layer.masksToBounds = true
     }
 
+    @objc func showSelectFriendController() {
+        self.performSegue(withIdentifier: "SelectFriendSegue", sender: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
     }

@@ -16,6 +16,7 @@ class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var uid: String?
     var chatrooms: [ChatModel] = []
+    var keys: [String] = []
     var destinationUsers: [String] = []
     
     override func viewDidLoad() {
@@ -36,6 +37,7 @@ class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableVie
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
                 if let chatroomdic = item.value as? [String:AnyObject] {
                     let chatModel = ChatModel(JSON: chatroomdic)
+                    self.keys.append(item.key)
                     self.chatrooms.append(chatModel!)
                 }
             }
@@ -71,6 +73,10 @@ class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.imageview.layer.masksToBounds = true
             cell.imageview.kf.setImage(with: url)
             
+            if(self.chatrooms[indexPath.row].comments.keys.count == 0) {
+                return
+            }
+            
             let lastmessagekey = self.chatrooms[indexPath.row].comments.keys.sorted(){$0>$1}
             cell.label_lastmessage.text = self.chatrooms[indexPath.row].comments[lastmessagekey[0]]?.message
             let unixTime = self.chatrooms[indexPath.row].comments[lastmessagekey[0]]?.timestamp
@@ -83,11 +89,18 @@ class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let destinationUid = self.destinationUsers[indexPath.row]
-        let view = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-        view.destinationUid = destinationUid
-        
-        self.navigationController?.pushViewController(view, animated: true)
+        if (self.destinationUsers[indexPath.row].count > 2) {
+            let view = self.storyboard?.instantiateViewController(withIdentifier: "GroupChatRoomViewController") as! GroupChatRoomViewController
+            view.destinationRoom = self.keys[indexPath.row]
+            
+            self.navigationController?.pushViewController(view, animated: true)
+        } else {
+            let destinationUid = self.destinationUsers[indexPath.row]
+            let view = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+            view.destinationUid = destinationUid
+            
+            self.navigationController?.pushViewController(view, animated: true)
+        }
     }
 }
 

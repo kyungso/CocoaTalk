@@ -11,6 +11,8 @@
 		BA260CCF221290BD007BC3EC /* ChatRoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA260CCE221290BD007BC3EC /* ChatRoomsViewController.swift */; };
 		BA260CD12213BDE3007BC3EC /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA260CD02213BDE3007BC3EC /* AccountViewController.swift */; };
 		BA5B7B2C220EF1AB0070C46C /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B7B2B220EF1AB0070C46C /* PeopleViewController.swift */; };
+		BA74B7802218027700C6AC8D /* SelectFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA74B77F2218027700C6AC8D /* SelectFriendViewController.swift */; };
+		BA74B7822218236200C6AC8D /* GroupChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA74B7812218236200C6AC8D /* GroupChatRoomViewController.swift */; };
 		BA8C050B22113F240064F7A5 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C050A22113F240064F7A5 /* ChatModel.swift */; };
 		BA8C050D2211407D0064F7A5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C050C2211407D0064F7A5 /* ChatViewController.swift */; };
 		BA9AC982220B13D90029273A /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA9AC981220B13D90029273A /* RemoteConfigDefaults.plist */; };
@@ -30,6 +32,9 @@
 		BA260CCE221290BD007BC3EC /* ChatRoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomsViewController.swift; sourceTree = "<group>"; };
 		BA260CD02213BDE3007BC3EC /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BA5B7B2B220EF1AB0070C46C /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		BA74B77E2217F8CD00C6AC8D /* BEMCheckBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BEMCheckBox.h; sourceTree = "<group>"; };
+		BA74B77F2218027700C6AC8D /* SelectFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendViewController.swift; sourceTree = "<group>"; };
+		BA74B7812218236200C6AC8D /* GroupChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatRoomViewController.swift; sourceTree = "<group>"; };
 		BA8C050A22113F240064F7A5 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		BA8C050C2211407D0064F7A5 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BA9AC981220B13D90029273A /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
@@ -83,6 +88,8 @@
 				BA5B7B2B220EF1AB0070C46C /* PeopleViewController.swift */,
 				BA260CCE221290BD007BC3EC /* ChatRoomsViewController.swift */,
 				BA260CD02213BDE3007BC3EC /* AccountViewController.swift */,
+				BA74B77F2218027700C6AC8D /* SelectFriendViewController.swift */,
+				BA74B7812218236200C6AC8D /* GroupChatRoomViewController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -130,6 +137,7 @@
 				BA9AC987220C18CB0029273A /* LoginViewController.swift */,
 				BAD7C1FA220D689C008F2847 /* SignupViewController.swift */,
 				BA8C050C2211407D0064F7A5 /* ChatViewController.swift */,
+				BA74B77E2217F8CD00C6AC8D /* BEMCheckBox.h */,
 			);
 			path = CocoaTalk;
 			sourceTree = "<group>";
@@ -235,6 +243,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CocoaTalk/Pods-CocoaTalk-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -247,6 +256,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -270,7 +280,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA9AC988220C18CB0029273A /* LoginViewController.swift in Sources */,
+				BA74B7802218027700C6AC8D /* SelectFriendViewController.swift in Sources */,
 				BA260CCF221290BD007BC3EC /* ChatRoomsViewController.swift in Sources */,
+				BA74B7822218236200C6AC8D /* GroupChatRoomViewController.swift in Sources */,
 				BACABB95220AC9A90057D892 /* ViewController.swift in Sources */,
 				BA8C050D2211407D0064F7A5 /* ChatViewController.swift in Sources */,
 				BAD7C1FB220D689C008F2847 /* SignupViewController.swift in Sources */,
@@ -434,6 +446,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ksjung.CocoaTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = CocoaTalk/BEMCheckBox.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -453,6 +466,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ksjung.CocoaTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = CocoaTalk/BEMCheckBox.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
