@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Kingfisher
 
 class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -15,6 +16,7 @@ class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var uid: String?
     var chatrooms: [ChatModel] = []
+    var destinationUsers: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,7 @@ class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableVie
         for item in chatrooms[indexPath.row].users {
             if(item.key != self.uid){
                 destinationUid = item.key
+                destinationUsers.append(destinationUid!)
             }
         }
         
@@ -62,22 +65,30 @@ class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableVie
             userModel.setValuesForKeys(datasnapshot.value as! [String : AnyObject])
             
             cell.label_title.text = userModel.userName
+            
             let url = URL(string: userModel.profileImageUrl!)
-            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, err) in
-                DispatchQueue.main.async {
-                    cell.imageview.image = UIImage(data: data!)
-                    cell.imageview.layer.cornerRadius = cell.imageview.frame.width/2
-                    cell.imageview.layer.masksToBounds = true
-                }
-            }).resume()
+            cell.imageview.layer.cornerRadius = cell.imageview.frame.width/2
+            cell.imageview.layer.masksToBounds = true
+            cell.imageview.kf.setImage(with: url)
             
             let lastmessagekey = self.chatrooms[indexPath.row].comments.keys.sorted(){$0>$1}
             cell.label_lastmessage.text = self.chatrooms[indexPath.row].comments[lastmessagekey[0]]?.message
+            let unixTime = self.chatrooms[indexPath.row].comments[lastmessagekey[0]]?.timestamp
+            cell.label_timestamp.text = unixTime?.toDayTime
             
         }
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let destinationUid = self.destinationUsers[indexPath.row]
+        let view = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        view.destinationUid = destinationUid
+        
+        self.navigationController?.pushViewController(view, animated: true)
+    }
 }
 
 class CustomCell: UITableViewCell {
@@ -85,4 +96,5 @@ class CustomCell: UITableViewCell {
     @IBOutlet weak var label_title: UILabel!
     @IBOutlet weak var label_lastmessage: UILabel!
     @IBOutlet weak var imageview: UIImageView!
+    @IBOutlet weak var label_timestamp: UILabel!
 }

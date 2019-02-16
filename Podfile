@@ -10,8 +10,10 @@ target 'CocoaTalk' do
   pod 'Firebase/Core'
   pod 'Firebase/RemoteConfig'
   pod 'TextFieldEffects'
+  pod 'Firebase/Messaging'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'ObjectMapper', '~> 3.4'
+  pod 'Kingfisher', '~> 5.0'
 end

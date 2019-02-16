@@ -29,7 +29,7 @@ class SignupViewController: UIViewController, UINavigationControllerDelegate, UI
         self.view.addSubview(statusBar)
         statusBar.snp.makeConstraints { (make) in
             make.left.top.right.equalTo(self.view)
-            make.height.equalTo(20)
+            make.height.equalTo(UIApplication.shared.statusBarFrame.height)
         }
         color = remoteConfig["splash_background"].stringValue
         
